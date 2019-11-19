@@ -14,7 +14,7 @@ public class Jogador {
 	}
 	
 	void salvarPont() {
-		String texto = nome + ";" + pont + ";";
+		String texto = nome + ":" + pont + ";";
 		Arquivos.write("pontuacao.txt", texto);
 	}
 }

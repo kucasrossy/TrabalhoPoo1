@@ -1,2 +1,3 @@
-lucas;0.0;
-Jumario;0.0;
+lucas:0.0;
+Jumario:0.0;
+Wislen:20.0;

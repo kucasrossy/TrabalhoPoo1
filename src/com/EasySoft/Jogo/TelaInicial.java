@@ -52,6 +52,15 @@ public class TelaInicial extends JFrame{
 		btnRanking.setFont(f);
 		btnRanking.setBounds(300, 150, 100, 30);
 		btnRanking.setText("Ranking");
+		btnRanking.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				new TelaRanking();
+			}
+			
+		});
 		return btnRanking;
 	}
 	

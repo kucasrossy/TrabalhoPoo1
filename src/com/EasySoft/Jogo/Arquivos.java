@@ -19,7 +19,7 @@ public class Arquivos {
 			try {
 				String linha = lerArq.readLine();
 				while(linha!=null) {
-					cont+=linha + "\n";
+					cont+=linha;
 					linha = lerArq.readLine();
 				}
 				arq.close();
