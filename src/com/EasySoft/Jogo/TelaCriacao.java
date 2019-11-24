@@ -50,7 +50,7 @@ public class TelaCriacao extends JFrame {
 		btn = new JButton();
 		btn.setFont(new Font("Arial",Font.ITALIC,16));
 		btn.setText("Jogar");
-		btn.setBounds(200, 180, 100, 50);
+		btn.setBounds(200, 150, 100, 50);
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -60,7 +60,7 @@ public class TelaCriacao extends JFrame {
 					Jogador a = new Jogador();
 					a.setName(txtField.getText());
 					System.out.println("Jogador Criado");
-					new Game().Jogar();
+					new Game(a).Jogar();
 					dispose();
 				}
 			}

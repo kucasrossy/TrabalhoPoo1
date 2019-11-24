@@ -3,29 +3,34 @@ package com.EasySoft.Jogo;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Game{
 	
 	//private int round = 10;
 	private int cont = 0;
+	private Jogador a;
+	int certas = 0;
+	
+	Game(Jogador a){
+		this.a = a;
+	}
 	
 	void Jogar() {
-		if(cont<2) {
-			TelaJogo g = new TelaJogo(cont);
-			g.comecou();
+		if(cont<3) {
+			new TelaJogo(cont);
 		}else {
-			JOptionPane.showMessageDialog(null, "Você terminou o Jogo");
+			a.salvarPont();
+			new TelaResult(cont);
 		}
 	}
 	
@@ -52,10 +57,6 @@ public class Game{
 			this.setVisible(true);
 		}
 
-		public void comecou() {
-			// Só pra n encher o saco
-		}
-
 		private Component initPanelOp() {
 			panelOp = new JPanel(new GridLayout(2,2));
 			for(int i=0;i<4;i++) {
@@ -68,13 +69,14 @@ public class Game{
 					public void actionPerformed(ActionEvent e) {
 						char o = b.getName().charAt(0);
 						if(o==png.getResp()) {
-							JOptionPane.showMessageDialog(null, "Acertou");
-						}else {
-							JOptionPane.showMessageDialog(null, "Errou");
+							a.Setpont(5);
+							certas++;
 						}
+						
 						cont++;
 						dispose();
 					    Jogar();
+					    
 					}
 					
 				});
@@ -84,13 +86,17 @@ public class Game{
 
 		private Component initPanelImagen() {
 			JLabel pergunta = new JLabel(png.getPergunta());
-	        Icon i = new ImageIcon(getClass().getResource(png.getImagen()));
+	        ImageIcon i = new ImageIcon(getClass().getResource(png.getImagen()));
+	        i.setImage(i.getImage().getScaledInstance(380,200, 100));
 			JLabel img = new JLabel(i);
 			panelPerg = new JPanel();
 			panelPerg.setLayout(new BorderLayout());
 			panelPerg.add(BorderLayout.CENTER,img);
 			panelPerg.add(pergunta,BorderLayout.SOUTH);
-			panelPerg.setBackground(Color.DARK_GRAY);
+			panelPerg.setBackground(Color.WHITE);
+		    pergunta.setFont(new Font("Arial",Font.BOLD,25));
+		    pergunta.setForeground(Color.BLACK);
+		    pergunta.setHorizontalAlignment(JLabel.CENTER);
 			return panelPerg;
 		}
 		

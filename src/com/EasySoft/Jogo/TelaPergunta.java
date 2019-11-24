@@ -21,7 +21,7 @@ public class TelaPergunta extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel panelImagen;
 	private JPanel panelOp;
-	Perguntas png = new Perguntas(0);
+	Perguntas png = new Perguntas(2);
 	//private int cont;
 	
 	TelaPergunta(){

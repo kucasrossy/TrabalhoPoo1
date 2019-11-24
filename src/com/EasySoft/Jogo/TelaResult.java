@@ -1,0 +1,57 @@
+package com.EasySoft.Jogo;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class TelaResult extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	int certas;
+	private JLabel lb;
+	private JButton btn;
+	
+	TelaResult(int certas){
+		this.certas = certas;
+		this.setResizable(false);
+		this.setSize(500,250);
+		this.setLocationRelativeTo(null);
+		this.setLayout(null);
+		this.add(initLabel());
+		this.add(initBtn());
+		this.setVisible(true);
+	}
+
+	private Component initBtn() {
+		btn = new JButton("Recomeçar");
+		btn.setBounds(180, 180, 120, 20);
+		btn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				new TelaInicial();
+			}
+			
+		});
+		return btn;
+	}
+
+	private Component initLabel() {
+		lb = new JLabel();
+		lb.setFont(new Font("Arial",Font.BOLD,25));
+		lb.setForeground(Color.BLACK);
+		lb.setText("Você acertou " + certas + " /10 perguntas");
+		lb.setBounds(60, 20, 400, 100);
+		return lb;
+	}
+}

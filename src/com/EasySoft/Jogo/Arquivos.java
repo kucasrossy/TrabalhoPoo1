@@ -11,14 +11,16 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Arquivos {
-	public static String read(String caminho) {
+	public static String read(String caminho,boolean linhas) {
 		String cont = "";
+		int i = 0;
 		try {
 			FileReader arq = new FileReader(caminho);
 			BufferedReader lerArq = new BufferedReader(arq);
 			try {
 				String linha = lerArq.readLine();
 				while(linha!=null) {
+					i++;
 					cont+=linha;
 					linha = lerArq.readLine();
 				}
@@ -31,7 +33,14 @@ public class Arquivos {
 			return ex.getMessage();
 		}
 		
-	   return cont;
+	   
+	  if(linhas) {
+		  return Integer.toString(i);
+	  }else {
+		  return cont;
+	  }
+		
+		
 	}
 	
 	public static boolean write(String caminho,String texto) {

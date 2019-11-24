@@ -22,7 +22,6 @@ public class TelaRanking extends JFrame {
 		this.getContentPane().setBackground(Color.MAGENTA);
 		this.setLayout(null);
 		this.add(initPanel());
-		Ranking();
 		this.setVisible(true);
 	}
 	
@@ -31,8 +30,9 @@ public class TelaRanking extends JFrame {
 		panelRanking.setBounds(20, 5, 250, 250);
 		panelRanking.setBackground(Color.CYAN);
 		panelRanking.setLayout(new BoxLayout(panelRanking,BoxLayout.Y_AXIS));
-		String[] ranking = Ranking();
-		for(int i =0;i<3;i++) {
+		String[] ranking = Ranking.rank(3);
+		int tam = ranking.length;
+		for(int i =0;i<tam;i++) {
 			JLabel l = new JLabel();
 			l.setText(ranking[i]);
 			panelRanking.add(l);
@@ -40,22 +40,4 @@ public class TelaRanking extends JFrame {
 		return panelRanking;
 	}
 	
-	private String[] Ranking() {
-		String rankDados = Arquivos.read("pontuacao.txt");
-		String[] dados = new String[3];
-		dados = rankDados.split(";");	
-		String aux = "";
-		for(int i = 0; i<3; i++){
-	        for(int j = 0; j<2; j++){
-	            if((Double.parseDouble(dados[j].substring(dados[j].indexOf(":")+1))) < (Double.parseDouble(dados[j+1].substring(dados[j+1].indexOf(":")+1)))){
-	                aux = dados[j];
-	                dados[j] = dados[j+1];
-	                dados[j+1] = aux;
-	            }
-	        }
-	    }
-		
-		return dados;
-		
-	}
 }
