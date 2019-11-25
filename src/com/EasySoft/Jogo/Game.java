@@ -1,6 +1,6 @@
 package com.EasySoft.Jogo;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -30,13 +30,13 @@ public class Game{
 			new TelaJogo(cont);
 		}else {
 			a.salvarPont();
-			new TelaResult(cont);
+			new TelaResult(certas);
 		}
 	}
 	
 	
 	
-	private class TelaJogo extends JFrame{
+	public class TelaJogo extends JFrame{
 
 		/**
 		 * 
@@ -45,11 +45,12 @@ public class Game{
 		private JPanel panelPerg;
 		private JPanel panelOp;
 		private Perguntas png;
+		private Barra b;
 		
 		TelaJogo(int i){
 			png = new Perguntas(i);
 			this.setLayout(new GridLayout(2,0));
-			this.setSize(500, 500);
+			this.setSize(500, 550);
 			this.setLocationRelativeTo(null);
 			this.setResizable(false);
 			this.add(initPanelImagen());
@@ -67,10 +68,11 @@ public class Game{
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						char o = b.getName().charAt(0);
-						if(o==png.getResp()) {
+						Character o = b.getText().charAt(0);
+						if(o.equals(png.getResp())) {
 							a.Setpont(5);
 							certas++;
+							System.out.println(o + " = " + png.getResp());
 						}
 						
 						cont++;
@@ -85,18 +87,22 @@ public class Game{
 		}
 
 		private Component initPanelImagen() {
-			JLabel pergunta = new JLabel(png.getPergunta());
-	        ImageIcon i = new ImageIcon(getClass().getResource(png.getImagen()));
-	        i.setImage(i.getImage().getScaledInstance(380,200, 100));
-			JLabel img = new JLabel(i);
 			panelPerg = new JPanel();
-			panelPerg.setLayout(new BorderLayout());
-			panelPerg.add(BorderLayout.CENTER,img);
-			panelPerg.add(pergunta,BorderLayout.SOUTH);
-			panelPerg.setBackground(Color.WHITE);
-		    pergunta.setFont(new Font("Arial",Font.BOLD,25));
-		    pergunta.setForeground(Color.BLACK);
-		    pergunta.setHorizontalAlignment(JLabel.CENTER);
+			b = new Barra(this);
+			panelPerg.setLayout(null);
+			panelPerg.add(b);
+			b.setSize(500, 10);
+			ImageIcon img = new ImageIcon(getClass().getResource(png.getImagen()));
+			img.setImage(img.getImage().getScaledInstance(380,248, 223));
+			JLabel lbImg = new JLabel(img);
+			lbImg.setBounds(120, 25, 248, 203);
+			panelPerg.add(lbImg);
+			JLabel lbPergunta = new JLabel();
+			lbPergunta.setFont(new Font("Arial",Font.BOLD,18));
+			lbPergunta.setForeground(Color.BLACK);
+			lbPergunta.setBounds(5, 190, 500, 100);
+			lbPergunta.setText("Essa pergunta é um teste\n para a nossa vitoria");
+			panelPerg.add(lbPergunta);
 			return panelPerg;
 		}
 		
