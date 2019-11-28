@@ -1,3 +1,19 @@
-/download.jpg;pergunta teste;A)teste;B)teste;C)teste;D)teste;A)teste
-/download.jpg;Teste 1 de pergunta;A)Otimo;B)Good;C)Bon;D)HI;B);
-/download.jpg;Teste 1 de pergunta kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk;A)ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOtimo;B)Good;C)Bon;D)HI;C);
+/Questao1.jpg;Qual político remete a essa imagem?;A)Jean Wyllys;B)Eduardo Suplicy;C)Guilherme Boulos;D)Alexandre Frota;D);
+/Questao2.jpg;Divida 60 por meio e some 20. qual será o resultado?;A)140;B)50;C)45;D)110;A);
+/Questao3.jpg;<html>Em uma corrida de 20 pessoas, ao ultrapassar o último colocado em qual posição você estará?</html>;A)Ultimo;B)Penultimo;C)Primeiro;D)Anti-Penultimo;C);
+/Questao4.jpg;De quem é a famosa frase “Penso, logo existo”?;A)Platão;B)Galileu Galilei;C)Descartes;D) Sócrates;D);
+/Questao5.jpg;De onde é a invenção do chuveiro elétrico?;A)França;B)Inglaterra;C)Brasil;D)Austrália;C);
+/Questao6.jpg;<html>Chernobyl e Césio-137 fazem parte dos maiores acidentes nucleares da história. Em que países aconteceram?</html>;A)Rússia e Espanha;B)Ucrânia e Brasil;C)Estados Unidos e Ucrânia;D)Japão e Brasil;B)
+/Questao7.jpg;Quanto tempo a luz do Sol demora para chegar à Terra?;A)12 minutos;B)1 dia;C)12 horas;D)8 minutos;D);
+/Questao8.jpg;Qual a altura da rede de vôlei nos jogos masculino e feminino?;A)2,4 para ambos;B)2,5 m e 2,0 m;C)1,8 m e 1,5 m;D)2,43 m e 2,24 m;D);
+/Questao9.jpg;Qual o maior animal terrestre?;A)Baleia Azul;B)Dinossauro;C)Elefante africano;D)Girafa;C);
+/Questao10.jpg;Qual a ciência que estuda a atmosfera da Terra e a climatologia?;A)Astronomia;B)Metereologia;C)Dispersão atmosférica;D)Meteorologia;D)
+
+
+
+
+
+
+
+
+

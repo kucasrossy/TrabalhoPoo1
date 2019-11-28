@@ -19,7 +19,7 @@ public class Barra extends JPanel implements Runnable {
 	private boolean click = false;
 	
 	Barra(TelaJogo a){
-		this.setBackground(Color.RED);
+		this.setBackground(new Color(252, 34, 253));
 		start();
 		this.a = a;
 	}

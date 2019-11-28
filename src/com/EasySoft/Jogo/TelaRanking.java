@@ -22,6 +22,7 @@ public class TelaRanking extends JFrame {
 	private int i = Integer.parseInt(Arquivos.read("pontuacao.txt", true));
 	
 	TelaRanking(){
+		Audio.play("m2.mp3");
 		this.setSize(600, 400);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,6 +52,8 @@ public class TelaRanking extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Audio.stop();
+				Audio.click();
 				dispose();
 				new TelaHist();
 			}
@@ -72,6 +75,8 @@ public class TelaRanking extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Audio.stop();
+				Audio.click();
 				dispose();
 				new TelaInicial();
 			}

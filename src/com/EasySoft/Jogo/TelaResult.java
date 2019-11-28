@@ -22,6 +22,11 @@ public class TelaResult extends JFrame {
 	
 	TelaResult(int certas){
 		this.certas = certas;
+		if(certas == 10) {
+			Audio.play("m3.mp3");
+		}else if(certas == 0) {
+			Audio.play("m4.mp3");
+		}
 		this.setResizable(false);
 		this.setSize(500,250);
 		this.setLocationRelativeTo(null);
@@ -29,6 +34,7 @@ public class TelaResult extends JFrame {
 		this.getContentPane().setBackground(new Color(13, 33, 101));
 		this.add(initLabel());
 		this.add(initBtn());
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 
@@ -42,6 +48,8 @@ public class TelaResult extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				Audio.stop();
+				Audio.click();
 				dispose();
 				new TelaInicial();
 			}

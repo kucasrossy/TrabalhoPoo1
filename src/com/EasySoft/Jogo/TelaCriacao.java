@@ -74,6 +74,8 @@ public class TelaCriacao extends JFrame {
 				if(txtField.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Você deve colocar o seu NickName");
 				}else {
+					Audio.stop();
+					Audio.click();
 					Jogador a = new Jogador();
 					a.setName(txtField.getText());
 					System.out.println("Jogador Criado");

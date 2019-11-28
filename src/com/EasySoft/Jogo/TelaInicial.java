@@ -22,6 +22,7 @@ public class TelaInicial extends JFrame{
 	Font f = new Font("Arial",Font.BOLD,15);
 	
 	TelaInicial(){
+		Audio.play("m1.mp3");
 		this.setTitle("Merecemos um 10");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
@@ -46,6 +47,7 @@ public class TelaInicial extends JFrame{
 		btnNick.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				Audio.click();
 				new TelaCriacao();
 				dispose();
 			}
@@ -66,6 +68,8 @@ public class TelaInicial extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				Audio.stop();
+				Audio.click();
 				dispose();
 				new TelaRanking();
 			}

@@ -1,29 +1,26 @@
 package com.EasySoft.Jogo;
 
 import java.io.File;
-import java.io.IOException;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JFrame;
+import jaco.mp3.player.MP3Player;
 
-public class Audio implements Runnable {
-	public void play(String path) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
-		File fil = new File(path);
-		Clip oClip = AudioSystem.getClip();
-		AudioInputStream oStream = AudioSystem.getAudioInputStream(fil);
-		oClip.open(oStream);
-		oClip.loop(Clip.LOOP_CONTINUOUSLY);
+public class Audio {
+	
+	static MP3Player p;
+	
+	public static void play(String caminho) {
+		p = new MP3Player(new File(caminho));
+		p.play();
+		p.setRepeat(true);
 	}
-
-	@Override
-	public void run() {
-		JFrame teste = new JFrame("Teste");
-		teste.setVisible(true);
-		
+	
+	public static void click() {
+		MP3Player c = new MP3Player(new File("c1.mp3"));
+		c.play();
+	}
+	
+	public static void stop() {
+		p.stop();
 	}
 	
 	
