@@ -2,7 +2,6 @@ package com.EasySoft.Jogo;
 
 
 import java.awt.Color;
-
 import javax.swing.JPanel;
 
 import com.EasySoft.Jogo.Game.TelaJogo;
@@ -16,6 +15,8 @@ public class Barra extends JPanel implements Runnable {
 	private double contador = 140;
 	private Thread thread;
 	TelaJogo a;
+	private boolean isRunning = true;
+	private boolean click = false;
 	
 	Barra(TelaJogo a){
 		this.setBackground(Color.RED);
@@ -27,10 +28,14 @@ public class Barra extends JPanel implements Runnable {
 		thread = new Thread(this);
 		thread.start();
 	}
+	
+	double getCont() {
+		return contador;
+	}
 
 	@Override
 	public void run() {
-		do {
+		while(isRunning){
 			this.setSize((int)(3.5 * contador), 10);
 			contador--;
 			try {
@@ -39,10 +44,28 @@ public class Barra extends JPanel implements Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}while(contador > -1);
+			
+			if(contador <0) {
+				isRunning = false;
+			}
+		}
 		
-		a.dispose();
+		if(isRunning == false && click == false) {
+			a.addCont();
+			a.dispose();
+			a.setJogar();
+		}
 	}
+
+	void tick() {
+		System.out.println(contador);		
+	}
+
+	public void click() {
+		isRunning = false;
+		click = true;
+	}
+	
 	
 }
 

@@ -1,6 +1,8 @@
 package com.EasySoft.Jogo;
 
 public class Ranking {
+	
+	
 	public static String[] rank(int tam) {
 		int linhas = Integer.parseInt(Arquivos.read("pontuacao.txt", true));
 		String dados = Arquivos.read("pontuacao.txt", false);
@@ -20,7 +22,7 @@ public class Ranking {
 		}
 		
 		String[] top = new String[tam];
-		for(int i =0; i<tam;i++) {
+		for(int i =0; i<=tam-1;i++) {
 			top[i] = rankDados[i];
 		}
 		

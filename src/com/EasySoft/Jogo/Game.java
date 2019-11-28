@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class Game{
 	
 	//private int round = 10;
-	private int cont = 0;
+	public int cont = 0;
 	private Jogador a;
 	int certas = 0;
 	
@@ -53,6 +53,7 @@ public class Game{
 			this.setSize(500, 550);
 			this.setLocationRelativeTo(null);
 			this.setResizable(false);
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			this.add(initPanelImagen());
 			this.add(initPanelOp());
 			this.setVisible(true);
@@ -61,24 +62,24 @@ public class Game{
 		private Component initPanelOp() {
 			panelOp = new JPanel(new GridLayout(2,2));
 			for(int i=0;i<4;i++) {
-				JButton b = new JButton(png.getOp(i));
-				b.setName(png.getOp(i));
-				panelOp.add(b);
-				b.addActionListener(new ActionListener() {
+				JButton btn = new JButton(png.getOp(i));
+				btn.setName(png.getOp(i));
+				panelOp.add(btn);
+				
+				btn.addActionListener(new ActionListener() {
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						Character o = b.getText().charAt(0);
+						Character o = btn.getText().charAt(0);
 						if(o.equals(png.getResp())) {
-							a.Setpont(5);
+							a.Setpont(5 * (b.getCont()/100));
 							certas++;
-							System.out.println(o + " = " + png.getResp());
 						}
 						
-						cont++;
+						b.click();
+						addCont();
 						dispose();
-					    Jogar();
-					    
+					    setJogar();
 					}
 					
 				});
@@ -104,6 +105,14 @@ public class Game{
 			lbPergunta.setText("Essa pergunta é um teste\n para a nossa vitoria");
 			panelPerg.add(lbPergunta);
 			return panelPerg;
+		}
+		
+		public void addCont() {
+			cont++;
+		}
+		
+		public void setJogar() {
+			Jogar();
 		}
 		
 	}
